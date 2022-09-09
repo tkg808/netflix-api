@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const pool = require("./db/connection");
 app.set("port", process.env.PORT || 8000);
 
 /* === Middleware ===  */
@@ -20,6 +21,11 @@ app.use(requestLogger);
 // Log each response.
 const responseLogger = require("./middleware/response_logger");
 app.use(responseLogger);
+
+/* === Controllers === */
+
+const countryController = require("./controllers/countryController");
+app.use("/api/countries", countryController);
 
 /* === Connection === */
 app.listen(app.get("port"), () => 
