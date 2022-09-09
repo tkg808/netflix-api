@@ -1,7 +1,7 @@
 const csvtojson = require("csvtojson");
 process.env.NODE_ENV !== "production" && require("dotenv").config();
 const filePath = process.env.CSV_PATH;
-const file = "show"
+const file = "show";
 
 /* === Parsing for unique values === */
 csvtojson()
